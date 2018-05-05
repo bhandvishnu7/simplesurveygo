@@ -3,6 +3,7 @@ package tests_test
 import (
 	"simplesurveygo/dao"
 	"testing"
+	"time"
 )
 
 func TestCreateQuestions(t *testing.T) {
@@ -26,6 +27,7 @@ func TestCreateQuestions(t *testing.T) {
 		Heading:     "Consider a credit card!",
 		Description: "Checking the chances of people option for a credit card",
 		Questions:   questions,
+		Expiry:      time.Now().Local().Add(1 * time.Minute),
 		Status:      true}
 
 	clctn.Insert(survey)
@@ -47,6 +49,7 @@ func TestCreateQuestions(t *testing.T) {
 		Heading:     "We love coffe!",
 		Description: "Checking the love people have for coffe",
 		Questions:   questions,
+		Expiry:      time.Now().Local().Add(1 * time.Minute),
 		Status:      false}
 
 	clctn.Insert(survey)
@@ -64,6 +67,7 @@ func TestCreateQuestions(t *testing.T) {
 		Heading:     "We love music!",
 		Description: "Checking the love people have for music",
 		Questions:   questions,
+		Expiry:      time.Now().Local().Add(1 * time.Minute),
 		Status:      true}
 
 	clctn.Insert(survey)
